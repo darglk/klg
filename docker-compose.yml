@@ -11,6 +11,7 @@ services:
       POSTGRES_DB: klg_client
       POSTGRES_USER: klg_client
       POSTGRES_PASSWORD: klg_client
+      PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       - default
 
