@@ -35,6 +35,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation group: 'com.giffing.bucket4j.spring.boot.starter', name: 'bucket4j-spring-boot-starter', version: '0.12.0'
+	implementation group: 'com.bucket4j', name: 'bucket4j-redis', version: '8.9.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: '3.3.5'
+	implementation group: 'redis.clients', name: 'jedis', version: '5.1.2'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '3.3.5'
+	implementation group: 'io.micrometer', name: 'micrometer-core', version: '1.12.4'
+
+
 }
 
 tasks.named('test') {

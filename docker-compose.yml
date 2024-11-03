@@ -1,6 +1,8 @@
 version: '3.8'
 services:
   db:
+    volumes:
+      - /home/rpi5-8gb/klg:/var/lib/postgresql/data
     image: postgres:alpine3.18
     ports:
       - "5439:5432"
@@ -11,3 +13,9 @@ services:
       POSTGRES_PASSWORD: klg_client
     networks:
       - default
+
+  redis:
+    restart: always
+    image: 'redis:latest'
+    ports:
+      - 6379:6379
