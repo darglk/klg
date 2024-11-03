@@ -2,7 +2,7 @@ version: '3.8'
 services:
   db:
     volumes:
-      - /home/rpi5-8gb/klg:/var/lib/postgresql/data
+      - /home/rpi5-8gb/klg:/var/lib/postgresql/data/japierdole
     image: postgres:alpine3.18
     ports:
       - "5439:5432"
