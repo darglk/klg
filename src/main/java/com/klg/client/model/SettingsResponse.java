@@ -1,5 +1,5 @@
 package com.klg.client.model;
 
-public record SettingsResponse(boolean autoDestroy) {
+public record SettingsResponse(boolean autoDestroy, boolean flushBuffer) {
 
 }

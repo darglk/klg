@@ -18,4 +18,6 @@ public class SettingsEntity {
   String id;
   @Column(name = "auto_destroy")
   private Boolean autoDestroy;
+  @Column(name = "flush_buffer")
+  private Boolean flushBuffer;
 }

@@ -43,10 +43,9 @@ public class ClientService {
   public SettingsResponse settings() {
     var settings = settingsRepository.findAll();
     if (settings.isEmpty()) {
-      return new SettingsResponse(false);
+      return new SettingsResponse(false, true);
     }
-    commandRepository.deleteAll();
-    return new SettingsResponse(settings.get(0).getAutoDestroy());
+    return new SettingsResponse(settings.get(0).getAutoDestroy(), settings.get(0).getFlushBuffer());
   }
 
   @Transactional
