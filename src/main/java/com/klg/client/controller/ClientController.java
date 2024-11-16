@@ -55,8 +55,8 @@ public class ClientController {
 
   @GetMapping(value = "/kc", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
   public ResponseEntity<Resource> getFileViaByteArrayResource() throws IOException {
-    HttpHeaders headers = new HttpHeaders(); headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=dupa.txt");
-    Path path = ResourceUtils.getFile("classpath:static/dupa.txt").toPath();
+    HttpHeaders headers = new HttpHeaders(); headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=main.zip");
+    Path path = ResourceUtils.getFile("classpath:static/main.zip").toPath();
     var resource = new ByteArrayResource(Files.readAllBytes(path));
     return ResponseEntity.ok()
         .headers(headers)
