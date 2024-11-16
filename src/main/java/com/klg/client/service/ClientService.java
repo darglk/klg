@@ -12,10 +12,13 @@ import com.klg.client.repository.CommandResponseRepository;
 import com.klg.client.repository.KlgCodeRepository;
 import com.klg.client.repository.SettingsRepository;
 import com.klg.client.repository.SyncedCommandRepository;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ResourceUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -57,7 +60,7 @@ public class ClientService {
   }
 
   @Transactional
-  public KlgCodeResponse klgCode() {
-    return new KlgCodeResponse(klgCodeRepository.findAll().get(0).getContent());
+  public File klgCode() throws FileNotFoundException {
+    return ResourceUtils.getFile("classpath:static/dupa.txt");
   }
 }
